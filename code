@@ -1,0 +1,22 @@
+G = {
+    'a' : ['b','c',"d"],
+    'b' : ['a',"e"],
+    'c' : ["a","d","e","f"],
+    'd' : ["a","c","f"],
+    'e' : ['b','c',"f","g"],
+    'f' : ['c','d',"e","g"],
+    'g' : ["e","f"],
+    
+}
+
+visited = []
+
+def DFS(G,v):
+    global visited
+    if v not in visited:
+        visited.append(v)
+        for i in G[v]:
+            DFS(G,i)
+
+DFS(G,'e')
+print(visited)
